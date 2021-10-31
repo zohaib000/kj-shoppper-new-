@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Instagram All posts Downloader</title>
+    <style>
+    #hd{
+      background-image: url("{% static '2.png' %}");
+      background-size:     cover;                      /* <------ */
+      background-repeat:   no-repeat;
+      background-position: center center; 
+      height: 300px;
+    }
+    #n{
+      color:red;
+    }
+    img{
+      width:100%;
+      height: 98%;
+    }
+    @media only screen and (min-width: 768px) {
+    label{
+      font-size:23px;
+    }
+    #had{
+      color:green;
+      font-size: 40px;
+    }
+}
+    </style>
+  </head>
+ <body>
+  <img src="{% static 'k.png' %}" alt="">
+
+    <div class="mb-3" style="background-color:">
+        <center><h2 id="had">Instagram All Posts Downloader</h2></center><br>
+        <form action="{% url 'all_submit' %}" method="post">
+          {% csrf_token %}
+        <center><label for="exampleFormControlInput1" class="form-label">Enter Instagram Account Name:</label></center>
+        <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter instagram account name to download his all posts....">
+        <br><br><center><input type="submit" class="btn btn-primary" onclick="alert()" value="Download All instagram Posts"></center></form>
+      </div>
+    </div> <br>
+    <center><h3 id="n"></h3></center>
+    <div class="alert alert-success" role="alert">
+      <p id="txt" >{{a}}</p>
+    </div>
+    <div style="background-color:"><br>
+      <h2>How to use this tool?</h2>
+      <ul>
+        <li>Enter the name of <b>instagram account </b> to download his <b>ALL Posts in seconds</b>.</li>
+        <li>Click on <b>Download All instagram </b> Button.And choose the Path where you want to download the All POSTS.</li>
+        <li>Now , ALL Posts of <b> instagram account </b> will be Downloaded successfully.</li>
+        <li><b> ALL instagram Posts </b>will be saved in <b>selected path</b>.</li>
+      </ul><br><br>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+   <script>
+ 
+    function alert(){
+     document.getElementById("txt").innerText="";
+     document.getElementById("n").innerText="instagram Account posts are Downloading.......";
+    }
+    
+   </script>
+  </body>
+</html>

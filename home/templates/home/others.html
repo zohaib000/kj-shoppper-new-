@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Find all links of any website</title>
+    <style>
+    #hd{
+      background-image: url("{% static '2.png' %}");
+      background-size:     cover;                      /* <------ */
+      background-repeat:   no-repeat;
+      background-position: center center; 
+      height: 300px;
+    }
+      
+    #vis{
+      visibility: hidden;
+    }
+      
+       #link{visibility:hidden;}
+      #link{visibility:{{display}};}
+    
+      #n{
+      color:red;
+    }
+    img{
+      width:100%;
+      height: 98%;
+    }
+    @media only screen and (min-width: 768px) {
+    label{
+      font-size:23px;
+    }
+    #had{
+      color:green;
+      font-size: 40px;
+    }
+    .card-header{
+      color:lime;
+      font-size: 30px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    .card-title{
+      color:red;
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+    </style>
+  </head>
+ <body>
+  <img src="{% static 'p.png' %}" alt="">
+
+    <div class="mb-3" style="background-color:">
+        <center><h2 id="had">Find all links of any website</h2></center><br>
+        <form action="{% url 'others_submit' %}" method="post">
+          {% csrf_token %}
+        <center><label for="exampleFormControlInput1" class="form-label">Enter Link of any webpage or website:</label></center>
+        <input type="text" name="link" class="form-control" id="exampleFormControlInput1" placeholder="Enter instagram webpage or website link  to Find all links....">
+        <br><br><center><input type="submit" class="btn btn-primary" onclick="alert()" value="Find links"></center></form>
+      </div>
+    </div> <br>
+    <center><h3 id="n"></h3></center>
+    <div class="alert alert-success" role="alert">
+      <p id="txt" >{{a}}</p>
+    </div>
+    <div>
+
+     <center><a href="{{b}}" id="link" class="btn btn-dark" download class="text-danger" style="text-decoration:none;font-size:50px;color:bg-danger;font-family:Lucida Console,"Courier New",Fantasy, monospace;">Export as Excel sheet</a></center>
+
+   </div><br>
+  {% for i in list %}
+      <li class="list-group-item"><a href="{{i}}">{{i}}</a></li>
+  {% endfor %}
+    <div style="background-color:"><br>
+      <h2>How to use this tool?</h2>
+      <ul>
+       <li>If you want to find all links in any website or any webpage.This tool can help you a lot..</li>
+       <li>Enter any website or webpage link <b>to find all links in website.</b> </li>
+       <li>now click on <b>Find links button</b>.Wait for a while ,All links will be extracted.</li>
+      </ul><br><br>
+    </div>
+    
+     <a id="a" href="#link"></a>
+   <a id="j" href="#n"></a>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+   <script>
+     
+ 
+    function alert(){
+     document.getElementById("txt").innerText="";
+     document.getElementById("n").innerText="Extracting all links.......";
+     document.getElementById("link").style.visibility="hidden";
+     document.getElementById('j').click();
+    }
+     
+  window.onload=function(){
+  if(document.getElementById("txt").innerText!=""){
+     document.getElementById('a').click();
+  }
+ }
+   </script>
+  </body>
+</html>

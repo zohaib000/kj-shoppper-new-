@@ -1,0 +1,216 @@
+
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>instagram stories Downloader</title>
+    <style>
+    #hd{
+      background-image: url("{% static 's.png' %}");
+      background-size:     contain;                      /* <------ */
+      background-repeat:   no-repeat;
+      background-position: center center; 
+      height: 300px;
+    }
+    #n{
+      color:red;
+    }
+      #link{visibility:hidden;}
+      #link{visibility:{{display}};}
+    img{
+      width:100%;
+      height: 98%;
+    }
+    @media only screen and (min-width: 768px) {
+    label{
+      font-size:23px;
+    }
+    #had{
+      color:green;
+      font-size: 40px;
+    }
+}
+    </style>
+  </head>
+ <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IG Downloader</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'story_submit' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'story' %}">Stories Downloader</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post' %}">Posts Downloader</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'post' %}">instagram image Downloader</a></li>
+              <li><a class="dropdown-item" href="{% url 'post' %}">instagram video Downloader</a></li>
+              
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Instagram Profile Downloader</a></li>
+            </ul>
+          </li>
+        
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div>
+  
+  </div>
+  <div><br><br>
+    <div class="mb-3" style="background-color:">
+        
+      <center><h2 id="had">instagram stories Downloader</h2> 
+        <form action="{% url 'story_submit' %}" method="post">
+          {% csrf_token %}
+        <center><label for="exampleFormControlInput1" class="form-label">Enter your favourite Account name:</label></center>
+        <input type="text" name="fa" class="form-control" id="exampleFormControlInput1" placeholder="Enter any instagram account name to download his stories..eg.,wariors"><br>
+        <br><br><center><input type="submit" class="btn btn-primary" onclick="alert()" value="Download instagram stories"></center></form>
+      </div>
+    </div> <br>
+    <center> <h3 id="n"></h3></center>
+    <div class="alert alert-success" role="alert">
+      <p id="txt" >{{a}}</p>
+    </div>
+    <center>{% for i in videos %}
+      <video  style="height: 300px;width: 300px;" src="{{i}}" controls>
+        <source src="{{i}}" type="video/mp4">
+      </video>
+      {% endfor %}</center><br>
+      <center>{% for i in pics %}
+      <img src="{{i}}" style="height: 300px;width: 300px;margin-top: 0%;" alt="">
+      {% endfor %}</center>
+      <br><br>
+      
+
+   <div>
+
+     <center><a href="{{b}}" id="link" class="btn btn-dark" download="{{account}} instagram stories.zip" class="text-danger" style="text-decoration:none;font-size:50px;color:bg-danger;font-family:Lucida Console,"Courier New",Fantasy, monospace;">Download Now</a></center>
+
+   </div>
+ 
+    <div style="background-color:"><br>
+      <h2>How to use this tool?</h2>
+      <ul>
+        <li>In first box ,Enter your <b>favourite account name</b>. to download his stories. </li>
+        <li>Enter your account name in 2nd Box.</li>
+        <li>Enter your <b>instagram account password in 3rd box.</b></li>
+        <li>Now , Click on <b>Download stories</b> button.After sometime <b>All stories </b>will be Fetched successfully and Download button will appear.</li>
+        <li>Click on <b>Download now</b> button.Wait for a while,All stories will be Downloaded.Check <b>instagram stories folder</b> in Download Folder to acess stories.</li>
+      </ul><br><br>
+    </div>
+    <br><br>
+    <div>
+      <h2 style="color: brown;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">What are instagram stories?</h2>
+      <p>"Instagram Stories" are vertical photos or videos, up to 15 seconds, that disappear after 24 hours after posting. Instead of being displayed in the feed, they’re displayed at the top of an active user’s app when they’re logged in, and are tapped through to view. You can learn more in our guide to getting started with IG Stories.
+
+        Unlike the feed, Instagram Stories offer a wide range of tools that encourage engagement. This includes stickers that let you ask questions, set up polls, and more. Plus, the Instagram Stories interface makes it super easy for viewers to message you directly.
+
+      </p>
+      <p>Because of the fact that Stories disappear after 24 hours, they’re often used much more casually than the Instagram feed. Stories are shared in the moment and there’s a lot more experimentation happening, as Instagrammers explore all the possibilities. There’s nothing going on your permanent record here, so feel free to try new things.
+
+      </p>
+    </div>
+    <br><br>
+    <div>
+      <h2 style='color: brown;'>How to make instgram Stories?</h2>
+      <ol style="font-size: 20px
+      ;"><li>Tap the plus button on the top-left side of your home screen or swipe left in your Feed. You can also quickly launch Stories by swiping right from the main screen.
+      </li>
+    <li>Tap the circle button at the bottom of the screen to take photos or tap and hold to record a video. You can also choose to start a live event or a Boomerang or put the app in hands-free mode. More on those options in a minute. To add photos or videos from your gallery, swipe up on the screen or tap the photo icon in the lower-left side of the screen. The app will automatically add a date sticker to your gallery photos, but you can remove it. I'll show you how below.
+    </li>
+    <li>
+      Edit the photos or videos with text or add a drawing as you normally would. If you hit the pen icon, there are three types of pens. The third one makes your sketch look like a neon sign.
+
+    </li>
+    <li>
+      Tap Done to save your Story.
+
+    </li>
+    <li>Tap the Add Your Story button to share to your Story. You can also tap on the Save icon to save your image or video on your phone. If you click the Arrow icon, you can shoot your image to one of your friends as well as your Story. Just tick the bubble by Your Story and the person you want to share with. The image will disappear as soon as your friend sees it.
+    </li>
+    </ol>
+    </div>
+    <br><br>
+    <div>
+      <h2 style="color: brown;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">How to Download Instagram images?</h2>
+     <p style="font-size:18px;">As you have learned , how to download instgaram stories of any instagram Favourite Account, So you can also Download Instgram images , videos and Dp of any instagram Account.First click on <b style="color: blueviolet;">Instgram Post Downlaoder</b> on top of Navigation bar. Then new page will be Downloaded, Now you have to just paste the link of any instagram post that can be imgae or video.</p>
+     <p style="font-size:18px;">After that You have to just click on DOwnload Button that will appera in 3 to 3 Seconds to Download Required image or video.</p>
+    </div>
+
+    <br><br>
+    <div>
+      <h2 style="color: brown;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">How to Download Videos with us?</h2>
+    <p style="font-size: 18px;">We are here to Provide you withh Downloading of Videos in very easy steps.First of all you have to go <a href="{% url 'post' %}" style="font-weight: bold;color: red;text-decoration: none;">Instagram Video Downlaoder</a>. After that just paste the link of any instagram video in box.After sometime Video will be extracted successfully and you will be able To Download Video.This method 100% works for all users. We povide the service of Downloading instagram images , videos and Dp for free.You can use our website with no cost plan.</p>
+    </div>
+
+    <div>
+      <h2 style="color: brown;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">What is Instagram DP?</h2>
+  <p style="font-size: 18px;">Instagram Dp means Profile picture of any instagram Account.Eache user of instagram uses some picture as Profile picture To Distiungish From others.We can say Dp to This type of profile picture.This is very easy to extract and Downlaod profile picture of any instagram user.Each user has its own Dp For all social media networks like
+  
+  </p>
+  <ul>
+    <li>instagram</li>
+    <li>whatsapp</li>
+    <li>Youtube</li>
+    <li>Facebook</li>
+    <li>Linkdin</li>
+    <li>Twitter</li>
+  </ul>
+    </div>
+
+    <br><br>
+  <div>
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color: brown;">How to Download Dp of Instagram?</h1>
+ 
+<p style="font-size: 18px">This is very simple to Download Dp of any private or Public account.Just Go to <a href="{% url 'profile' %}">Instagram Profile Downlaoder</a> to Download Dp.After that paste any instagram username in box to Download his Dp in few seconds.This is very easy to Understand ,how to Download profile pic with us.</p>  
+
+</div>
+
+   <a id="a" href="#link"></a>
+   <a id="j" href="#n"></a>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+   <script>
+    function alert(){
+
+     document.getElementById("txt").innerText="";
+     document.getElementById("n").innerText="Fetching instagram stories........";
+     document.getElementById("link").style.visibility="hidden";
+     document.getElementById('j').click();
+     
+    }
+     
+window.onload=function(){
+  if(document.getElementById("txt").innerText!=""){
+     document.getElementById('a').click();
+  }
+}
+   </script>
+  </body>
+</html>
