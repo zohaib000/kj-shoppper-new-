@@ -7,6 +7,8 @@ import requests
 class home(View):
     def get(self,request):
         city=request.GET.get('city')
+        if city is None:
+            city='london'
         url=f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=ebdec6e0cdd6b6863b31dcc52a67ef9e"
         json=requests.get(url).json()
         
